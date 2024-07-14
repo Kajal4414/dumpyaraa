@@ -28,15 +28,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Create .githubtoken file
-        run: echo "${{ secrets.GIT_TOKEN }}" > .githubtoken
+      - name: Setup
+        run: |
+          echo "${{ secrets.GH_TOKEN }}" > .githubtoken
+          bash setup.sh
 
-      # - name: Create .tgtoken file
-      #   run: echo "${{ secrets.TELEGRAM_TOKEN }}" > .tgtoken
-
-      - name: Set up environment
-        run: bash setup.sh
-
-      - name: Run dumpyara
+      - name: Dumpyara
         run: |
           bash dumpyara.sh ${{ inputs.urls }}
