@@ -52,7 +52,7 @@ else
     [[ -e "$URL" ]] || { echo "Invalid Input" && exit 1; }
 fi
 
-ORG=Jiovanni-dump #your GitHub org name
+ORG=Kajal4414 #your GitHub org name
 FILE=$(echo ${URL##*/} | inline-detox)
 EXTENSION=$(echo ${URL##*.} | inline-detox)
 UNZIP_DIR=${FILE/.$EXTENSION/}
@@ -246,10 +246,10 @@ if [[ -n $GIT_OAUTH_TOKEN ]]; then
     curl --silent --fail "https://raw.githubusercontent.com/$ORG/$repo/$branch/all_files.txt" 2> /dev/null && echo "Firmware already dumped!" && exit 1
     git init
     if [[ -z "$(git config --get user.email)" ]]; then
-        git config user.email giovanniricca@duck.com
+        git config user.email 81718060+Kajal4414@users.noreply.github.com
     fi
     if [[ -z "$(git config --get user.name)" ]]; then
-        git config user.name Jiovanni-bot
+        git config user.name Kajal4414
     fi
     git config http.postBuffer 157286400
     curl -s -X POST -H "Authorization: token ${GIT_OAUTH_TOKEN}" -d '{ "name": "'"$repo"'" }' "https://api.github.com/orgs/${ORG}/repos" #create new repo
